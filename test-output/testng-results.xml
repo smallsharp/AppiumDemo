@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="49960" started-at="2016-03-01T06:19:59Z" finished-at="2016-03-01T06:20:49Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="49960" started-at="2016-03-01T06:19:59Z" finished-at="2016-03-01T06:20:49Z">
+      <class name="com.lk.android.test.TestCase2">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="init" is-config="true" duration-ms="12093" started-at="2016-03-01T14:19:47Z" finished-at="2016-03-01T14:19:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="initTestData()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="initTestData" is-config="true" duration-ms="0" started-at="2016-03-01T14:19:59Z" finished-at="2016-03-01T14:19:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTestData -->
+        <test-method status="PASS" signature="a_welcome()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="a_welcome" duration-ms="14584" started-at="2016-03-01T14:19:59Z" finished-at="2016-03-01T14:20:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- a_welcome -->
+        <test-method status="PASS" signature="t_login()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="t_login" duration-ms="19280" started-at="2016-03-01T14:20:13Z" finished-at="2016-03-01T14:20:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t_login -->
+        <test-method status="PASS" signature="t_login2()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="t_login2" duration-ms="14401" started-at="2016-03-01T14:20:33Z" finished-at="2016-03-01T14:20:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- t_login2 -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.lk.android.test.TestCase2@35bbe5e8]" name="quit" is-config="true" duration-ms="1680" started-at="2016-03-01T14:20:47Z" finished-at="2016-03-01T14:20:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.lk.android.test.TestCase2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
