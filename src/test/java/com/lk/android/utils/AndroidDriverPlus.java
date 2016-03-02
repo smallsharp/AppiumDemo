@@ -11,7 +11,13 @@ import io.appium.java_client.android.AndroidKeyCode;
 @SuppressWarnings("rawtypes")
 public class AndroidDriverPlus extends AndroidDriver {
 
-	public static AndroidDriverPlus driver;
+	private AndroidDriverPlus driver;
+	
+	public void setDriver(AndroidDriverPlus driver){
+		this.driver = driver;
+	}
+	
+	
 
 	public AndroidDriverPlus(URL remoteAddress, Capabilities desiredCapabilities) {
 		super(remoteAddress, desiredCapabilities);
@@ -38,8 +44,7 @@ public class AndroidDriverPlus extends AndroidDriver {
 
 	// 向左滑动
 	public void swipeToLeft(int times) throws InterruptedException {
-		System.out.println("开始执行：swipeToLeft");
-
+		
 		int width = driver.manage().window().getSize().width;
 		int height = driver.manage().window().getSize().height;
 
@@ -72,18 +77,5 @@ public class AndroidDriverPlus extends AndroidDriver {
 			driver.pressKeyCode(AndroidKeyCode.KEYCODE_DEL);// 67
 		}
 	}
-
-	/*
-	 * @Override public WebElement findElement(final By by) { // TODO
-	 * Auto-generated method stub
-	 * 
-	 * WebElement element = new AndroidDriverWait(driver, 20).until(new
-	 * ExpectedCondition<WebElement>() { public WebElement apply(AndroidDriver
-	 * ad) { WebElement element = (WebElement) ad.findElement(by); if
-	 * (element.isDisplayed() != true) { return null; } else { return element; }
-	 * } }); return element;
-	 * 
-	 * }
-	 */
 
 }

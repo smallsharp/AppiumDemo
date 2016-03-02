@@ -1,4 +1,4 @@
-package com.lk.android.test;
+package com.lk.android.testSuite;
 
 import io.appium.java_client.android.AndroidDriver;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.lk.android.test;
+package com.lk.android.testSuite;
 
 import java.net.MalformedURLException;
 
@@ -9,23 +9,26 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.lk.android.pages.Personal;
+import com.lk.android.utils.AndroidDriverPlus;
 import com.lk.android.utils.AndroidInit;
-import com.lk.android.utils.DataOffer;
+import com.lk.android.utils.CsvDataReader;
+import com.lk.android.utils.ExcelDataReader;
 
 public class TestCase2 extends AndroidInit{
 	
-	public DataOffer offer;
+	public ExcelDataReader reader;
 	
 	@BeforeClass
-	public void initTestData() throws MalformedURLException{
-		offer = new DataOffer(System.getProperty("user.dir")+"/assets/data.csv");
+	public void init() throws MalformedURLException{
+		super.initDriver();
+		reader = new ExcelDataReader(System.getProperty("user.dir")+"/assets/data.xls");
 	}
 	
 	@Test
 	public void a_welcome() throws InterruptedException {
 		System.out.println("开始执行：a_welcome()");
 		Thread.sleep(5000);
-		swipeToLeft();
+		ad.swipeToLeft(3);
 		ad.findElement(By.name("立即开启")).click();
 		ad.findElement(By.name("我")).click();
 		ad.findElement(By.name("我")).click();
@@ -34,50 +37,35 @@ public class TestCase2 extends AndroidInit{
 		Thread.sleep(2000);
 	}
 	
-	@Test
+	@Test(description="正确的用户名、错误的密码")
 	public void t_login(){
 		System.out.println("开始执行：login()");
 		
 		WebElement acc = ad.findElement(Personal.account);// 账号
-		acc.sendKeys(offer.getData("account", "tc1"));
+		acc.sendKeys(reader.getDataFromExcel("login","account","tc1"));
 		
 		WebElement pwd = ad.findElement(Personal.password);// 密码
-		pwd.sendKeys(offer.getData("password", "tc1"));
+		pwd.sendKeys(reader.getDataFromExcel("login","password","tc1"));
 		
 		WebElement loginBtn = ad.findElement(Personal.loginBtn);// 点击登录
 		loginBtn.click();
 
 	}
 	
-	@Test
+	@Test(description="正确的用户名、正确的密码")
 	public void t_login2(){
 		System.out.println("开始执行：login()");
 		
 		WebElement acc = ad.findElement(Personal.account);// 账号
-		acc.sendKeys(offer.getData("account", "tc2"));
+		acc.sendKeys(reader.getDataFromExcel("login", "account","tc2"));
 		
 		WebElement pwd = ad.findElement(Personal.password);// 密码
-		pwd.sendKeys(offer.getData("password", "tc2"));
+		pwd.sendKeys(reader.getDataFromExcel("login","password","tc2"));
 		
 		WebElement loginBtn = ad.findElement(Personal.loginBtn);// 点击登录
 		loginBtn.click();
 
 	}
-	
-	
-	public static void swipeToLeft() throws InterruptedException {
-
-		System.out.println("执行：swipeToLeft");
-		int width = ad.manage().window().getSize().width;
-		int height = ad.manage().window().getSize().height;
-
-		for (int i = 1; i <= 3; i++) {
-			ad.swipe(width * 9 / 10, height / 2, width / 10, height / 2, 500);
-			System.out.println("向左滑动了" + i + "次");
-			Thread.sleep(1000);
-		}
-	}
-	
 	
 	
 	@AfterClass

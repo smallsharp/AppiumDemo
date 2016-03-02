@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 
-public class DataOffer {
+public class CsvDataReader {
 
 	private String filePath;
 	private String nextLine[];
@@ -16,17 +16,10 @@ public class DataOffer {
 
 	private String value;
 
-	public DataOffer(String filePath) {
+	public CsvDataReader(String filePath) {
 		this.filePath = filePath;
 	}
-
-	/**
-	 * 
-	 * @param columnName
-	 * @param lineName
-	 * @return
-	 */
-	public String getData(String columnName, String lineName) {
+	public String getDataFromCsv(String columnName, String lineName) {
 
 		try {
 			reader = new CSVReader(new FileReader(filePath));
@@ -63,11 +56,11 @@ public class DataOffer {
 	}
 
 	public static void main(String[] args) {
-		DataOffer dp = new DataOffer(
+		CsvDataReader dp = new CsvDataReader(
 				System.getProperty("user.dir") + "\\assets\\data.csv");
 
-		System.out.println(dp.getData("account", "tc1") + ":" + dp.getData("password", "tc1"));
-		System.out.println(dp.getData("account", "tc2") + ":" + dp.getData("password", "tc2"));
+		System.out.println(dp.getDataFromCsv("account", "tc1") + ":" + dp.getDataFromCsv("password", "tc1"));
+		System.out.println(dp.getDataFromCsv("account", "tc2") + ":" + dp.getDataFromCsv("password", "tc2"));
 
 	}
 

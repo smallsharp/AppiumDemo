@@ -3,6 +3,7 @@ package com.lk.android.utils;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.CapabilityType;
@@ -14,12 +15,9 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AndroidInit {
 	
-	
-	protected static AndroidDriver ad;
-	
-	
-	@BeforeSuite
-	public void init() throws MalformedURLException {
+	@SuppressWarnings("rawtypes")
+	protected static AndroidDriverPlus ad;
+	public void initDriver() throws MalformedURLException {
 
 		System.out.println("****测试开始，正在初始化数据****");
 		File classpathRoot = new File(System.getProperty("user.dir"));
@@ -37,9 +35,12 @@ public class AndroidInit {
 		dc.setCapability("deviceName", "41ad3630");
 		dc.setCapability("platformVersion", "5.0");
 		dc.setCapability("app", app.getAbsolutePath());
-		ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), dc);// AppiumServer的地址
+		ad = new AndroidDriverPlus(new URL("http://127.0.0.1:4723/wd/hub"), dc);// AppiumServer的地址
+		ad.setDriver(ad);
+		
 		ad.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		System.out.println("初始化完成...");
+		
+		System.out.println("****初始化完成****");
 	}
-
+	
 }
