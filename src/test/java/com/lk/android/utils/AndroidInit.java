@@ -3,23 +3,17 @@ package com.lk.android.utils;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 
-import io.appium.java_client.android.AndroidDriver;
 
 public class AndroidInit {
 	
-	@SuppressWarnings("rawtypes")
 	protected static AndroidDriverPlus ad;
 	public void initDriver() throws MalformedURLException {
 
-		System.out.println("****测试开始，正在初始化数据****");
+		System.out.println("正在初始化数据...");
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		File appDir = new File(classpathRoot, "apps/Troad");
 		File app = new File(appDir, "atroad3.5.0.apk");
@@ -40,7 +34,7 @@ public class AndroidInit {
 		
 		ad.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		System.out.println("****初始化完成****");
+		System.out.println("初始化完成...");
 	}
 	
 }

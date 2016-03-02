@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- 1、suite名称、test名称可以随便写 2、class name需写全路径 3、methods 写方法名称即可,代码中填写@test，但是这里不添加的话，仍然不会执行 
+	4、执行需要run testNG.xml -->
+<suite name="Suite">
+	<test name="test" preserve-order="true">
+	    
+		<classes>
+			<class name="com.lk.android.testSuite.TestCase1">
+				<methods>
+					<include name="test_welcome" />
+					<include name="test_login" />
+					<include name="test_login2" />
+				</methods>
+			</class>
+
+			<class name="com.lk.android.testSuite.TestCase2">
+				<methods>
+					<include name="test_order_001" />
+					<include name="test_order_002" />
+				</methods>
+			</class>
+		</classes>
+		
+	</test>
+</suite>

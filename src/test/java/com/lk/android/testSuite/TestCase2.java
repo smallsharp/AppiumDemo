@@ -5,72 +5,56 @@ import java.net.MalformedURLException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.lk.android.actions.SearchProduct;
 import com.lk.android.pages.Personal;
-import com.lk.android.utils.AndroidDriverPlus;
 import com.lk.android.utils.AndroidInit;
-import com.lk.android.utils.CsvDataReader;
 import com.lk.android.utils.ExcelDataReader;
+
+import io.appium.java_client.android.AndroidKeyCode;
 
 public class TestCase2 extends AndroidInit{
 	
-	public ExcelDataReader reader;
 	
 	@BeforeClass
 	public void init() throws MalformedURLException{
-		super.initDriver();
-		reader = new ExcelDataReader(System.getProperty("user.dir")+"/assets/data.xls");
+		System.out.println("开始测试：TestCase2");
+	}
+	
+	
+	@Test(description="商品id:19264")
+	public void test_order_001() throws InterruptedException {
+		SearchProduct sp = new SearchProduct();
+		sp.search("19264");
+		
+		boolean result = sp.searchResult();
+		if (result == true) {
+			sp.gottaBuy();
+			sp.submitOrder();
+			// sp.pay();
+		}
 	}
 	
 	@Test
-	public void a_welcome() throws InterruptedException {
-		System.out.println("开始执行：a_welcome()");
-		Thread.sleep(5000);
-		ad.swipeToLeft(3);
-		ad.findElement(By.name("立即开启")).click();
-		ad.findElement(By.name("我")).click();
-		ad.findElement(By.name("我")).click();
-		ad.findElement(By.name("我")).click();
-		ad.findElement(By.name("点击登录")).click();
-		Thread.sleep(2000);
-	}
-	
-	@Test(description="正确的用户名、错误的密码")
-	public void t_login(){
-		System.out.println("开始执行：login()");
-		
-		WebElement acc = ad.findElement(Personal.account);// 账号
-		acc.sendKeys(reader.getDataFromExcel("login","account","tc1"));
-		
-		WebElement pwd = ad.findElement(Personal.password);// 密码
-		pwd.sendKeys(reader.getDataFromExcel("login","password","tc1"));
-		
-		WebElement loginBtn = ad.findElement(Personal.loginBtn);// 点击登录
-		loginBtn.click();
-
-	}
-	
-	@Test(description="正确的用户名、正确的密码")
-	public void t_login2(){
-		System.out.println("开始执行：login()");
-		
-		WebElement acc = ad.findElement(Personal.account);// 账号
-		acc.sendKeys(reader.getDataFromExcel("login", "account","tc2"));
-		
-		WebElement pwd = ad.findElement(Personal.password);// 密码
-		pwd.sendKeys(reader.getDataFromExcel("login","password","tc2"));
-		
-		WebElement loginBtn = ad.findElement(Personal.loginBtn);// 点击登录
-		loginBtn.click();
-
+	public void test_order_002() throws InterruptedException {
+		System.out.println("开始执行：test_order002()");
+		// 切换到首页
+		ad.startActivity("com.scienvo.app.troadon", "com.scienvo.app.troadon.MainActivity");
+		SearchProduct sp = new SearchProduct();
+		sp.search("19289");
+		boolean result = sp.searchResult();
+		if (result == true) {
+			sp.gottaBuy();
+			sp.chooseDate();
+			sp.submitOrder();
+			// sp.pay();
+		}
 	}
 	
 	
-	@AfterClass
-	public void quit(){
-		ad.quit();
-	}
 	
 }

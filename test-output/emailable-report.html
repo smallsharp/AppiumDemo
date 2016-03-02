@@ -31,18 +31,54 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">3</td><td class="numi">3</td><td class="numi">0</td><td class="numi">0</td><td class="numi">56.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">test</td><td class="numi">4</td><td class="numi">4</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">133.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="3">com.lk.android.testSuite.TestCase2</td><td><a href="#m1"><b>a_welcome</b>  </a></td><td class="numi">1</td><td>1456913625780</td><td class="numi">17928</td></tr><tr class="passedodd"><td><a href="#m2"><b>t_login</b>  ("正确的用户名、错误的密码")</a></td><td class="numi">1</td><td>1456913643709</td><td class="numi">11323</td></tr><tr class="passedodd"><td><a href="#m3"><b>t_login2</b>  ("正确的用户名、正确的密码")</a></td><td class="numi">1</td><td>1456913655033</td><td class="numi">13582</td></tr>
+<tr><th colspan="4">test &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">com.lk.android.testSuite.TestCase2</td><td><a href="#m1"><b>test_order_002</b>  </a></td><td class="numi">1</td><td>1456919838121</td><td class="numi">43119</td></tr>
+<tr><th colspan="4">test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="3">com.lk.android.testSuite.TestCase1</td><td><a href="#m2"><b>test_welcome</b>  </a></td><td class="numi">1</td><td>1456919747342</td><td class="numi">17744</td></tr><tr class="passedodd"><td><a href="#m3"><b>test_login</b>  ("正确的用户名、错误的密码")</a></td><td class="numi">1</td><td>1456919765087</td><td class="numi">11176</td></tr><tr class="passedodd"><td><a href="#m4"><b>test_login2</b>  ("正确的用户名、正确的密码")</a></td><td class="numi">1</td><td>1456919776264</td><td class="numi">15661</td></tr>
+<tr class="passedeven"><td rowspan="1">com.lk.android.testSuite.TestCase2</td><td><a href="#m5"><b>test_order_001</b>  ("商品id:19264")</a></td><td class="numi">1</td><td>1456919791929</td><td class="numi">46191</td></tr>
 </table>
-<h1>Default test</h1>
-<h2 id="m1">com.lk.android.testSuite.TestCase2:t_login2</h2>
+<h1>test</h1>
+<h2 id="m1">com.lk.android.testSuite.TestCase2:test_order_002</h2>
+<div style="padding-left:3em">
+<p>element not visible
+  (Session info: webview=30.0.0.0)
+  (Driver info: chromedriver=2.18.343845 (73dd713ba7fbfb73cbb514e62641d8c96a94682a),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 52 milliseconds
+Build info: version: &apos;2.48.2&apos;, revision: &apos;41bccdd10cf2c0560f637404c2d96164b67d9d67&apos;, time: &apos;2015-10-09 13:08:06&apos;
+System info: host: &apos;USER-20150804OD&apos;, ip: &apos;10.1.22.28&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_31&apos;
+Driver info: com.lk.android.utils.AndroidDriverPlus
+Capabilities [{app=D:\MyFile\WorkSpace\test\apps\Troad\atroad3.5.0.apk, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, deviceName=127.0.0.1:62001, platform=LINUX, desired={app=D:\MyFile\WorkSpace\test\apps\Troad\atroad3.5.0.apk, platformVersion=5.0, browserName=, unicodeKeyboard=true, platformName=Android, deviceName=41ad3630, resetKeyboard=true}, platformVersion=4.4.2, webStorageEnabled=false, locationContextEnabled=false, browserName=, takesScreenshot=true, javascriptEnabled=true, unicodeKeyboard=true, platformName=Android, resetKeyboard=true}]
+Session ID: 92234cc3-3aee-47ee-b899-ed97cc9644a4</p>
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br/>at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br/>at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br/>at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+<br/>at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+<br/>at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:647)
+<br/>at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+<br/>at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+<br/>at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:326)
+<br/>at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:44)
+<br/>at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+<br/>at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+<br/>at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+<br/>at com.lk.android.actions.SearchProduct.submitOrder(SearchProduct.java:93)
+<br/>at com.lk.android.testSuite.TestCase2.test_order_002(TestCase2.java:53)
+<br/>25 lines not shown
+</div>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m2">com.lk.android.testSuite.TestCase2:t_login</h2>
+<h2 id="m2">com.lk.android.testSuite.TestCase1:test_welcome</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m3">com.lk.android.testSuite.TestCase2:a_welcome</h2>
+<h2 id="m3">com.lk.android.testSuite.TestCase1:test_login2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.lk.android.testSuite.TestCase1:test_login</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">com.lk.android.testSuite.TestCase2:test_order_001</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>
