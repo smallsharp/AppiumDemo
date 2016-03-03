@@ -6,18 +6,21 @@
 	<test name="test" preserve-order="true">
 	    
 		<classes>
-			<class name="com.lk.android.testSuite.TestCase1">
+<!-- 			<class name="com.lk.android.testSuite.TestCase1">
 				<methods>
 					<include name="test_welcome" />
-					<include name="test_login" />
-					<include name="test_login2" />
+		 			<include name="test_loginWrong" />
+					<include name="test_loginRight" /> 
+					<include name="test_loginOut" />
 				</methods>
-			</class>
+			</class> -->
 
 			<class name="com.lk.android.testSuite.TestCase2">
 				<methods>
-					<include name="test_order_001" />
-					<include name="test_order_002" />
+					<include name="test_welcome" />
+					<include name="test_loginRight" />
+					<include name="test_editNickName"></include>
+					<include name="test_editMail"></include>
 				</methods>
 			</class>
 		</classes>

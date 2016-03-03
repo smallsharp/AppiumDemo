@@ -3,58 +3,76 @@ package com.lk.android.testSuite;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-import com.lk.android.actions.SearchProduct;
-import com.lk.android.pages.Personal;
+import com.lk.android.actions.Login;
+import com.lk.android.actions.User;
 import com.lk.android.utils.AndroidInit;
-import com.lk.android.utils.ExcelDataReader;
+import com.lk.android.utils.ExcelReader;
 
-import io.appium.java_client.android.AndroidKeyCode;
+/**
+ * @author Administrator
+ * @简介：登录、登出
+ */
 
 public class TestCase2 extends AndroidInit{
 	
+	public ExcelReader excel;
 	
 	@BeforeClass
 	public void init() throws MalformedURLException{
-		System.out.println("开始测试：TestCase2");
+		super.initDriver();
+		excel = new ExcelReader(System.getProperty("user.dir")+"/assets/data.xls");
+	}
+	
+	@Test(description="欢迎页面")
+	public void test_welcome() throws InterruptedException{
+		System.out.println("开始执行：test_welcome()");
+		welcome.run();
+
 	}
 	
 	
-	@Test(description="商品id:19264")
-	public void test_order_001() throws InterruptedException {
-		SearchProduct sp = new SearchProduct();
-		sp.search("19264");
+	@Test(description="登录")
+	public void test_loginRight() throws InterruptedException{
 		
-		boolean result = sp.searchResult();
-		if (result == true) {
-			sp.gottaBuy();
-			sp.submitOrder();
-			// sp.pay();
+		System.out.println("开始执行：test_loginRight()");
+		boolean result = false;
+		
+		ad.findElement(By.name("我")).click();
+		ad.findElement(By.name("点击登录")).click();
+		
+		Login login = new Login(ad);
+		login.run(excel.getValue("login","account","tc2"), excel.getValue("login","password","tc2"));
+		
+		Thread.sleep(4000);
+		System.out.println("currentActivity:"+ad.currentActivity());
+		if(ad.currentActivity().equals(".MainActivity")){
+			result = true;
 		}
+		Assert.assertTrue(result);
 	}
 	
-	@Test
-	public void test_order_002() throws InterruptedException {
-		System.out.println("开始执行：test_order002()");
-		// 切换到首页
-		ad.startActivity("com.scienvo.app.troadon", "com.scienvo.app.troadon.MainActivity");
-		SearchProduct sp = new SearchProduct();
-		sp.search("19289");
-		boolean result = sp.searchResult();
-		if (result == true) {
-			sp.gottaBuy();
-			sp.chooseDate();
-			sp.submitOrder();
-			// sp.pay();
-		}
+	@Test(description="修改昵称")
+	public void test_editNickName() throws InterruptedException{
+		User user = new User(ad);
+		user.editNickName();
+	}
+	
+	@Test(description="修改邮箱")
+	public void test_editMail() throws InterruptedException{
+		User user = new User(ad);
+		user.editMail();;
 	}
 	
 	
+	
+	@AfterClass
+	public void quit(){
+		System.out.println("测试结束，正在清理数据...");
+		ad.quit();
+	}
 	
 }

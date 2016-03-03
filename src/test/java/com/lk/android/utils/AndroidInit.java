@@ -7,10 +7,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.lk.android.actions.Welcome;
+
 
 public class AndroidInit {
 	
 	protected static AndroidDriverPlus ad;
+	protected Welcome welcome;
 	public void initDriver() throws MalformedURLException {
 
 		System.out.println("正在初始化数据...");
@@ -32,8 +35,9 @@ public class AndroidInit {
 		ad = new AndroidDriverPlus(new URL("http://127.0.0.1:4723/wd/hub"), dc);// AppiumServer的地址
 		ad.setDriver(ad);
 		
-		ad.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		welcome = new Welcome(ad);
 		
+		ad.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		System.out.println("初始化完成...");
 	}
 	

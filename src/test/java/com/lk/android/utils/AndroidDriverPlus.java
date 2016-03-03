@@ -2,9 +2,14 @@ package com.lk.android.utils;
 
 import java.net.URL;
 import java.util.Set;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 
@@ -54,6 +59,24 @@ public class AndroidDriverPlus extends AndroidDriver {
 			Thread.sleep(1000);
 		}
 	}
+	
+	public void swipeUpUntilFind(String str) throws InterruptedException{
+		
+		int width = driver.manage().window().getSize().width;
+		int height = driver.manage().window().getSize().height;
+		
+		for(int i=0; i<5; i++){
+			Thread.sleep(4000);
+			System.out.println("循环了"+i+"次");
+			driver.swipe(width / 2, height *9/10, width / 2, height / 20, 500);
+			if(driver.getPageSource().contains(str)){
+				break;
+			}
+		}
+
+
+	}
+	
 
 	// webview页面切换时，需要加这个方法
 	public String pageShift() {

@@ -7,16 +7,16 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 
-public class ExcelDataReader {
+public class ExcelReader {
 
 	private static String filePath;
 	private String value;
 
-	public ExcelDataReader(String filePath) {
+	public ExcelReader(String filePath) {
 		this.filePath = filePath;
 	}
 
-	public String getDataFromExcel(String sheetName, String columnName, String lineName) {
+	public String getValue(String sheetName, String columnName, String lineName) {
 
 		Workbook book = null;
 		Sheet sheet = null;
@@ -67,8 +67,8 @@ public class ExcelDataReader {
 	// 测试方法
 	public static void main(String[] args) {
 		filePath = System.getProperty("user.dir") + "\\assets\\data.xls";
-		ExcelDataReader jre = new ExcelDataReader(filePath);
-		System.out.println("testdata:" + jre.getDataFromExcel("login", "password", "tc2"));
-		System.out.println("testdata:" + jre.getDataFromExcel("232", "account", "tc2"));
+		ExcelReader jre = new ExcelReader(filePath);
+		System.out.println("testdata:" + jre.getValue("login", "password", "tc2"));
+		System.out.println("testdata:" + jre.getValue("232", "account", "tc2"));
 	}
 }

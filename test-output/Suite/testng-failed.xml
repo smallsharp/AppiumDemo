@@ -5,16 +5,11 @@
     <classes>
       <class name="com.lk.android.testSuite.TestCase2">
         <methods>
-          <include name="test_order_002"/>
-          <include name="init"/>
-        </methods>
-      </class> <!-- com.lk.android.testSuite.TestCase2 -->
-      <class name="com.lk.android.testSuite.TestCase1">
-        <methods>
+          <include name="test_welcome"/>
           <include name="init"/>
           <include name="quit"/>
         </methods>
-      </class> <!-- com.lk.android.testSuite.TestCase1 -->
+      </class> <!-- com.lk.android.testSuite.TestCase2 -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
