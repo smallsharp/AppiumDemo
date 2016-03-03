@@ -2,6 +2,7 @@ package com.lk.android.testSuite;
 
 import java.net.MalformedURLException;
 
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -20,7 +21,6 @@ import com.lk.android.utils.ExcelReader;
 public class TestCase2 extends AndroidInit{
 	
 	public ExcelReader excel;
-	
 	@BeforeClass
 	public void init() throws MalformedURLException{
 		super.initDriver();
