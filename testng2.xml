@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" parallel="tests" thread-count="3">
+    
+    <test name="xiaomi2" preserve-order="true">
+		<parameter name="udid" value="d7d30d3b"></parameter>
+		<parameter name="port" value="4723"></parameter>
+		<classes>
+			<class name="com.lk.android.testSuite.Demo">
+			</class>
+		</classes>
+	</test>
+	
+    <test name="魅蓝note" preserve-order="true">
+		<parameter name="udid" value="71UBBL6224R4"></parameter>
+		<parameter name="port" value="4800"></parameter>
+		<classes>
+			<class name="com.lk.android.testSuite.Demo"/>
+		</classes>
+	</test>
+    
+	<test name="Nox_" preserve-order="true">
+		<parameter name="udid" value="127.0.0.1:62001"></parameter>
+		<parameter name="port" value="4900"></parameter>
+		
+		<classes>
+			<class name="com.lk.android.testSuite.Demo"/>
+		</classes>
+	</test>
+
+
+	
+
+</suite>

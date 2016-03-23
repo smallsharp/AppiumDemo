@@ -3,18 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lk.android</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>AppiumTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	
-<!-- 	<configuraton>
-		<systemPropertyVaribales>
-			<testEnvironment>${testEnv}</testEnvironment>
-		</systemPropertyVaribales>
-		<suiteXmlFiles>
-			<suiteXmlFile>${xmlFileName}</suiteXmlFile>
-		</suiteXmlFiles>
-	</configuraton> -->
+
+	<!-- <configuraton> <systemPropertyVaribales> <testEnvironment>${testEnv}</testEnvironment> 
+		</systemPropertyVaribales> <suiteXmlFiles> <suiteXmlFile>${xmlFileName}</suiteXmlFile> 
+		</suiteXmlFiles> </configuraton> -->
 
 	<name>test</name>
 	<url>http://maven.apache.org</url>
@@ -36,21 +31,35 @@
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>LATEST</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.sourceforge.jexcelapi</groupId>
 			<artifactId>jxl</artifactId>
-			<version>2.6</version>
+			<version>LATEST</version>
 		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>LATEST</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-context</artifactId>
+   			 <version>LATEST</version>
+		</dependency>
+
 
 	</dependencies>
 	
+
 	<build>
 		<defaultGoal>complie</defaultGoal>
 		<plugins>
@@ -58,12 +67,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.10</version>
 				<configuration>
- 					<suiteXmlFiles>  
-                    	<suiteXmlFile>testng.xml</suiteXmlFile>  
-                	</suiteXmlFiles>  
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

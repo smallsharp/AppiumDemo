@@ -2,26 +2,20 @@ package com.lk.android.utils;
 
 import java.net.URL;
 import java.util.Set;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 
 @SuppressWarnings("rawtypes")
 public class AndroidDriverPlus extends AndroidDriver {
 
-	private AndroidDriverPlus driver;
+	static AndroidDriverPlus driver;
 	
 	public void setDriver(AndroidDriverPlus driver){
 		this.driver = driver;
 	}
-	
 	
 
 	public AndroidDriverPlus(URL remoteAddress, Capabilities desiredCapabilities) {
@@ -55,7 +49,7 @@ public class AndroidDriverPlus extends AndroidDriver {
 
 		for (int i = 1; i <= times; i++) {
 			driver.swipe(width * 9 / 10, height / 2, width / 10, height / 2, 500);
-			System.out.println("向左滑动了" + i + "次");
+			System.out.println("向左滑动次数："+i);
 			Thread.sleep(1000);
 		}
 	}
@@ -67,7 +61,6 @@ public class AndroidDriverPlus extends AndroidDriver {
 		
 		for(int i=0; i<5; i++){
 			Thread.sleep(4000);
-			System.out.println("循环了"+i+"次");
 			driver.swipe(width / 2, height *9/10, width / 2, height / 20, 500);
 			if(driver.getPageSource().contains(str)){
 				break;

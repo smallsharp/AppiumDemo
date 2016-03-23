@@ -3,13 +3,13 @@
 <suite name="Failed suite [Suite]">
   <test name="test(failed)">
     <classes>
-      <class name="com.lk.android.testSuite.TestCase2">
+      <class name="com.lk.android.testSuite.NewTestCase2">
         <methods>
-          <include name="test_welcome"/>
-          <include name="init"/>
-          <include name="quit"/>
+          <include name="test_editNickName"/>
+          <include name="setup"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- com.lk.android.testSuite.TestCase2 -->
+      </class> <!-- com.lk.android.testSuite.NewTestCase2 -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
