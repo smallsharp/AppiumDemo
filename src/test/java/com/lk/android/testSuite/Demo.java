@@ -23,7 +23,6 @@ public class Demo {
 	private static AndroidDriver driver;
 	
 	@Parameters({"udid","port"})
-	
 	@BeforeClass
 	public void setup(String udid,String port) throws MalformedURLException {
 
